@@ -14,8 +14,8 @@ public class Pages
     //member functions modules
     public void SaveEntriesToFile() 
     {
-        string filename = _saveFile;
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        string fileName = _saveFile;
+        using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             foreach (Entries entry in entriesList)
             {
