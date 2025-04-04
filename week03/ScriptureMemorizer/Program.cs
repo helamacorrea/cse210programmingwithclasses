@@ -7,7 +7,10 @@ class Program
     static void Main(string[] args)
     {
         
-        
+        //For the exeeding requirements I did a surprize challenge at when the user finishes to erase all 
+        // words. The challange is to write the words of the scriptures to the console and they will show up 
+        // on the scripture
+
         Reference r1 = new Reference("John",3,16);
         Scripture s1 = new Scripture(r1, "16.For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life.");
         Reference r2 = new Reference("Proverbs", 3, 5, 6);
