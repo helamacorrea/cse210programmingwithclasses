@@ -4,7 +4,7 @@ public class ReflectionActivity : Activity
     private List<string> _randomQuestions;
 
 
-    public ReflectionActivity(int duration) : base(duration)
+    public ReflectionActivity()
     {
         SetActivityName("Reflection Activity");
         SetDescription("This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
@@ -14,24 +14,37 @@ public class ReflectionActivity : Activity
 
     public void RunActivity()
     {
-
+        DisplayStartingMessage();
+        GetRandomPrompt();
+        Console.Write("Now ponder on each of the following questions as they related to this experience. \nYou may begin in: ");
+        AnimationCountdown(8);
+        Console.Clear();
+        GetRandomQuestion();
+        DisplayEndingMessage();
     }
 
     public void GetRandomPrompt()
     {
         Random rnd = new Random();
         int index = rnd.Next(_randomPrompts.Count);
-        Console.WriteLine(_randomPrompts[index]);
+        Console.WriteLine($"Consider the following prompt:\n\n---{_randomPrompts[index]}---\n\nWhen you have something in mind, press enter to continue.");
+        Console.ReadLine();
     }
 
     public void GetRandomQuestion()
     {
-        Random rnd = new Random();
-        int index = rnd.Next(_randomQuestions.Count);
-        Console.WriteLine(_randomQuestions[index]);
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(GetDuration());
+        while (DateTime.Now < endTime)
+        {
+            Random rnd = new Random();
+            int index = rnd.Next(_randomQuestions.Count);
+            Console.Write(_randomQuestions[index]);
+            AnimationSpinner(15);
+            Console.WriteLine();
+        }
+
     }
-
-
 
 
 

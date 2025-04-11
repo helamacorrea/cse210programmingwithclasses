@@ -3,8 +3,12 @@ public class Activity
     private string _activityName;
     private string _description;
     private int _duration; //in seconds
+    private int _totalDuration;
 
-
+    public Activity()
+    {
+        _totalDuration = 0;
+    }
     public Activity(int duration)
     {
         _duration = duration;
@@ -15,6 +19,8 @@ public class Activity
         _description = description;
         _duration = duration;
     }
+
+    
 
     public void SetActivityName(string activityName)
     {
@@ -30,10 +36,13 @@ public class Activity
     {
         return _duration;
     }
-    public void Menu()
+    public string GetActivityName()
     {
-        //allow the user to choose an activity
-
+        return _activityName;
+    }
+    public int GetTotalDuration()
+    {
+        return _totalDuration;
     }
     public void DisplayStartingMessage()
     {
@@ -42,6 +51,11 @@ public class Activity
         //  of the activity in seconds. Then, it should 
         // tell the user to prepare to begin and pause for
         //  several seconds.
+
+        Console.WriteLine($"{_activityName}!\n{_description}\n\nHow many seconds do you want the {_activityName} to last? ");
+        _duration = int.Parse(Console.ReadLine());
+        Console.WriteLine("Prepare Yourself...");
+        AnimationSpinner(5);
     }
 
     public void DisplayEndingMessage()
@@ -50,33 +64,43 @@ public class Activity
         // pause and then tell them the activity they have
         //  completed and the length of time and pauses
         //  for several seconds before finishing.
+        Console.WriteLine("Well Done!!");
+        AnimationSpinner(3);
+        Console.WriteLine($"\n\nYou have completed another {_duration} seconds of the {_activityName}.");
+        AnimationSpinner(10);
+        _totalDuration += _duration;
     }
-    public void PauseSpinner(int seconds)
+    public void AnimationCountdown(int number)
     {
-        //Whenever the application pauses it should show 
-        // some kind of animation to the user, such as a 
-        // spinner, a countdown timer, or periods being 
-        // displayed to the screen.
-        Thread.Sleep(5000);
-
-
-    }
-    public void PauseCountDown(int seconds)
-    {
-
-    }
-    public void AnimationCountdown()
-    {
-    
+        for (int i = number; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
     }
 
-    public void AnimationSpinner()
+    public void AnimationSpinner(int seconds)
     {
+        List<string> slashesList = new List<string> {"|","/","-","\\"};
 
-    }
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(seconds);
+        int i = 0;
+        while (DateTime.Now < endTime)
+        {
+            string s = slashesList[i];
+            Console.Write(s);
+            Thread.Sleep(500);
+            Console.Write("\b \b");
 
-    public void AnimationPeriods()
-    {
+            i++;
+
+            if (i >= slashesList.Count)
+            {
+                i=0;
+            }
+        }
 
     }
 
