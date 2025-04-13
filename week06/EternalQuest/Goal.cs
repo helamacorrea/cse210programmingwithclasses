@@ -12,16 +12,38 @@ public abstract class Goal
     }
     public abstract void RecordEvent();
     public abstract bool IsComplete();
+    public abstract int IsCheckListFull();
     public virtual string GetDetailsString()
     {
         //checkbox, the short name, and description.
         // and for the check list class also the
         //  numberof times the goal was accomplished
-        return "";
+        string checkBox;
+        if (IsComplete())
+        {
+            checkBox = "[v]";
+        }
+        else
+        {
+            checkBox = "[ ]";
+        }
+        return $"{checkBox} {_shortName} ({_description})";
     }
     public abstract string GetStringRepresentation(); //in a way to save to a file
-
-
+    public string GetName()
+    {
+        return _shortName;
+    }
+    public string GetDescription()
+    {
+        return _description;
+    }
+  
+    public int GetPoints()
+    {
+        return _points;
+    }
+    
 
 
 

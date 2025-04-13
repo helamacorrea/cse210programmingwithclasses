@@ -6,9 +6,17 @@ public class SimpleGoal : Goal
     {
         _isComplete = false;
     }
+    public SimpleGoal(string name, string description, int points, bool completed) : base(name,description,points)
+    {
+        _isComplete = completed;
+    }
+    public override int IsCheckListFull()
+    {
+        return 0;
+    }
     public override void RecordEvent()
     {
-
+        _isComplete = true;
     }
     public override bool IsComplete()
     {
@@ -16,7 +24,7 @@ public class SimpleGoal : Goal
     }
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"SimpleGoal:{GetName()}**{GetDescription()}**{GetPoints()}**{_isComplete}";
     }
 
 

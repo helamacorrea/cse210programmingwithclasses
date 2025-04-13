@@ -1,0 +1,4 @@
+Score:103
+CheckListGoal:c**c**1**100**3**3
+SimpleGoal:a**a**1**False
+EternalGoal:b**b**1

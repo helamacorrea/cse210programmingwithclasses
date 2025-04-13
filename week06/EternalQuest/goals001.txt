@@ -1,0 +1,4 @@
+Score:0
+SimpleGoal:All Book of Mormon**Read all the book of mormon**500**False
+EternalGoal:Read Come follow me **Read everyday the come follow me for at least 10 min**50
+CheckListGoal:Going to the Temple!**I wanto to goal to the temple 12 times in 12 months**200**1000**12**0

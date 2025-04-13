@@ -3,7 +3,11 @@ public class EternalGoal : Goal
 
     public EternalGoal(string name, string description, int points) : base(name,description,points)
     {
-        
+
+    }
+    public override int IsCheckListFull()
+    {
+        return 0;
     }
     public override void RecordEvent()
     {
@@ -11,11 +15,11 @@ public class EternalGoal : Goal
     }
     public override bool IsComplete()
     {
-        return true;
+        return false;
     }
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"EternalGoal:{GetName()}**{GetDescription()}**{GetPoints()}";
     }
     
 }
