@@ -1,4 +1,0 @@
-0
-SimpleGoal:buy a car**save 100k to buy a car**10**False
-EternalGoal:make my wife breakfast every week**wake up early to make breakfast every week**5
-CheckListGoal:do groceries**buy bread, milk and meat**1**2**8**0
